@@ -1,0 +1,95 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Jason's Hangman</title>
+</head>
+<body>
+
+<script>
+//script chooses word from array
+	//1 Create array
+	//2	Randomly choose word from array
+	//3 Display word as dashes
+//script displays dashes for each letter in chosen word
+	//1 Count letters in chosen word
+	//2	Display letter count in dashes
+//script prompts user to pick a letter
+	//1 Create letter tiles across bottom
+	//2 Alert box telling users to pick a letter from tiles
+//script reviews user choice, validates against word
+	//
+//if letter appears in word, script replaces dashes with letter
+//if letter is not in word, script adds one part of hangman
+//script prompts user to select another letter
+//?How many guesses does user get?
+//
+
+//Create array
+var wordChoices = [
+	"Apple",
+	"Banana",
+	"Carrot",
+	"Dates",
+	"Elderberry",
+	"Fig",
+	"Guava",
+	"Honeydew Mellow",
+	"Orange"
+];
+
+//Randomly choose word from array
+// var randWord = wordChoices[Math.floor(Math.random() * wordChoices.length)];
+
+function randomChoice(wordChoices) {
+	return wordChoices[Math.floor(Math.random() * wordChoices.length)];
+	document.getElementById(randomChoice);
+	console.log(randomChoice);
+}
+
+// Dashes replacing letters
+var dashes = "";
+for (i = 0; i < chosenWord.length; i++) {
+  if (chosenWord.charAt(i) == " ") {
+    dashes += " ";
+  } else {
+    dashes += "-";
+  }
+}
+
+// //create empty array
+var answerArray = [];
+for (var i = 0; i < randWord.length; i++) {
+	answerArray[i] = "_";
+};
+
+// //Create variable to keep track of letters that remain to be guessed
+var remainingLetters = word.length;
+
+// //The Game Loop
+while (remainingLetters > 0) {
+	//Show the player their progress
+	var el = document.getElementById("demo");
+	el.innerHTML = answerArray.join(" ");
+	//Get guess from player
+	var guess = prompt("Guess a letter or click Cancel to stop playing.");
+	if(guess === null) {
+		//exit game loop
+		break;
+	} else if (guess.length !== 1) {
+		alert("Please enter a single letter");
+		} else (
+			for (var j = 0; j < randWord.length; j++) {
+				if (word[j] === guess) {
+					answerArray[j] = guess;
+					remainingLetters--;
+				}
+			}
+		}
+// //End of Game Loop
+// }
+
+</script>
+	
+</body>
+</html>
